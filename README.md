@@ -1,59 +1,55 @@
-⚽ Champions League Prediction: Barcelona vs. Paris SG (ML ELO Model)
-🌟 Project Overview
-This project implements a mini Machine Learning model (Logistic Regression) to predict the outcome probabilities of the UEFA Champions League match between FC Barcelona and Paris Saint-Germain (PSG), specifically when played at Barcelona's home stadium.
+# ⚽ Champions League Match Predictor: Barcelona vs PSG
 
-The prediction model is built upon the ELO Rating System, adjusted with a historical analysis of match results from a large dataset of global football matches.
+A machine learning model that predicts match outcomes for UEFA Champions League fixtures using ELO ratings and team form data.
 
-🛠️ Methodology & Model
-1. Data Sources
-EloRatings.csv: Contains historical and recent ELO ratings for top football clubs.
+## 📊 Project Overview
 
-Matches.csv: Contains historical match results, scores, ELO ratings, and form data.
+This project implements a machine learning model (Logistic Regression) to predict outcome probabilities for UEFA Champions League matches, specifically focusing on FC Barcelona vs Paris Saint-Germain when played at Barcelona's home stadium.
 
-2. Feature Engineering
-The model uses the relative strength of the teams, quantified by two key features:
+The model combines the ELO rating system with historical match analysis to generate accurate predictions.
 
-Feature	Calculation	Rationale
-ELO Difference	(Home Elo+100)−Away Elo	ELO is the primary strength metric; +100 accounts for home advantage.
-Form Difference	Home Team Form (L5)−Away Team Form (L5)	Captures recent performance momentum.
+## 🏗️ Methodology & Model
 
-Exporter vers Sheets
-3. Machine Learning Model
-Type: Logistic Regression (Binary Classifier)
+### Data Sources
+- `EloRatings.csv`: Historical and current ELO ratings for top football clubs
+- `Matches.csv`: Historical match results, scores, ELO ratings, and team form data
 
-Target: P(Home Win) vs. P(Not Home Win)
+### Feature Engineering
+The model uses two key features to quantify team strength:
 
-Model Accuracy: 62.82% on the test data.
+| Feature | Calculation | Rationale |
+|---------|-------------|-----------|
+| **ELO Difference** | `(Home_Elo + 100) - Away_Elo` | Primary strength metric with +100 home advantage bonus |
+| **Form Difference** | `Home_Team_Form(L5) - Away_Team_Form(L5)` | Recent performance momentum |
 
-3-Way Split: The P(Not Home Win) probability is split into P(Draw) and P(Away Win) using the historical ratio of Draws vs. Away Wins observed in the training data (Draws ≈48.84% of Not Home Win outcomes).
+### Machine Learning Model
+- **Algorithm**: Logistic Regression (Binary Classifier)
+- **Target**: `P(Home Win)` vs `P(Not Home Win)`
+- **Accuracy**: 62.82% on test data
+- **3-Way Split**: `P(Not Home Win)` is divided into Draw/Away Win using historical ratios (48.84% of non-home wins are draws)
 
-🔮 Final Prediction (Barça Home)
-Based on the latest ELO ratings (Bar 
-c
-¸
-​
- a=1945.43, PSG=1974.94) and the trained Logistic Regression model, the predicted outcome probabilities for the match at Barcelona's home ground are:
+## 📈 Prediction Results
 
-Outcome	Team	Predicted Probability
-Home Win	Barcelona	53.56%
-Draw	Draw	22.68%
-Away Win	Paris SG	23.76%
+**Match**: Barcelona vs Paris SG (Home Game for Barcelona)  
+**ELO Ratings**: Barcelona = 1945.43, PSG = 1974.94
 
-Exporter vers Sheets
-Visualization
-The model clearly predicts a victory for the home team.
+| Outcome | Team | Probability |
+|---------|------|-------------|
+| 🏠 Home Win | Barcelona | 53.56% |
+| ⚖️ Draw | Draw | 22.68% |
+| ✈️ Away Win | Paris SG | 23.76% |
 
-🚀 Future Enhancements
-Separate Draw Model: Train a second Logistic Regression model specifically for the Draw outcome for a more sophisticated 3-way split.
+**Conclusion**: The model predicts a home victory for Barcelona.
 
-Betting Odds Integration: Incorporate external features like betting odds (OddHome, OddDraw, OddAway from Matches.csv) into the model to improve accuracy.
+## 🚀 Future Enhancements
 
-Time Decay: Introduce a weighting factor for ELO ratings, giving more importance to recent results over older ones.
+- **Separate Draw Model**: Train dedicated Logistic Regression for draw outcomes
+- **Betting Odds Integration**: Incorporate external betting odds data
+- **Time Decay**: Weight recent results more heavily in ELO calculations
+- **Advanced Features**: Include player injuries, head-to-head history, and tactical formations
 
-🔑 Prerequisites & Usage
-To replicate this project, you need Python and the following libraries:
+## 🛠️ Installation & Usage
 
-Bash
-
+### Prerequisites
+```bash
 pip install pandas numpy scikit-learn matplotlib
-The core code is available in the Match_Prediction_Notebook.ipynb file (or equivalent), which guides you through the data loading, training, and prediction steps.
