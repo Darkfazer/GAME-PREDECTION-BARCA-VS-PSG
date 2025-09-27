@@ -1,8 +1,3 @@
-# GAME-PREDECTION-BARCA-VS-PSG
-That's a great final step! A well-structured README.md file is essential for any GitHub project to explain its purpose, methodology, and results.
-
-Here is the complete Markdown content for your project's README.md file.
-
 ⚽ Champions League Prediction: Barcelona vs. Paris SG (ML ELO Model)
 🌟 Project Overview
 This project implements a mini Machine Learning model (Logistic Regression) to predict the outcome probabilities of the UEFA Champions League match between FC Barcelona and Paris Saint-Germain (PSG), specifically when played at Barcelona's home stadium.
